@@ -1,6 +1,3 @@
-/* This file pulls in Tailwind's base styles, component classes, and
-   utility classes. Every "className='...'" we use in our components
-   is generated from these three directives. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

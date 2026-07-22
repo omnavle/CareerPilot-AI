@@ -1,0 +1,6 @@
+and error highlighting.
+• Implemented secure API handling and session management to ensure data integrity during live code evaluation.
+GALEMED AI – Medical Knowledge Assistant
+Python, LangChain, RAG, ChromaDB, Hugging Face
+• Built a Retrieval-Augmented Generation application using The Gale Encyclopedia of Medicine, enabling accurate medical
+question answering through semantic document retrie

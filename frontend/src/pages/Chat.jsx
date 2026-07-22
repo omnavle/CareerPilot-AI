@@ -17,11 +17,7 @@ useEffect(() => {
   });
 }, []);
 
-// Scroll the container itself straight to the bottom on every update.
-// We use direct scrollTop (instant) instead of scrollIntoView({smooth})
-// because streaming fires this many times per second - a smooth-scroll
-// animation would get interrupted and restarted before it finishes,
-// so it never actually reaches the bottom.
+
 useEffect(() => {
   const container = messagesContainerRef.current;
   if (container) {

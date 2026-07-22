@@ -1,13 +1,3 @@
-"""
-interview_agent.py
-
-Job of this file: generate INTERVIEW QUESTIONS based on the resume.
-Examples: "Generate interview questions", "Ask me technical questions",
-"What HR questions might I get?", "Ask me about my projects".
-
-Same pattern as the other two agents: retrieve resume context -> prompt -> LLM.
-"""
-
 from app.rag.vector_store import retrieve_relevant_chunks
 from app.agents.llm_client import llm
 

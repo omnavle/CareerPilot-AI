@@ -1,13 +1,3 @@
-"""
-career_agent.py
-
-Job of this file: answer CAREER GUIDANCE questions based on the resume.
-Examples: "What skills should I learn?", "Suggest projects for me",
-"Give me a 3-month learning roadmap", "Am I ready for a data analyst role?".
-
-Same pattern as resume_agent.py: retrieve resume context -> prompt -> LLM.
-"""
-
 from app.rag.vector_store import retrieve_relevant_chunks
 from app.agents.llm_client import llm
 

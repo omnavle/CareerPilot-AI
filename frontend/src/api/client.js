@@ -1,10 +1,5 @@
 import axios from "axios";
 
-// Job of this file: the ONLY place in the frontend that knows the backend's
-// URL and endpoint paths. Every page/component calls functions from here
-// instead of writing "axios.post(...)" directly - so if the backend URL
-// ever changes, we update it in exactly one place.
-
 const apiClient = axios.create({
   baseURL: "http://localhost:8000",
 });

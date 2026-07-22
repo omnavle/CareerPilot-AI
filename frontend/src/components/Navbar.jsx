@@ -1,13 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 
-// Job of this file: a simple top navigation bar shown on every page.
-// It's a "component" (not a "page") because it doesn't have its own
-// route - it's reused inside App.jsx and shown above every page.
-
 function Navbar() {
   const location = useLocation();
 
-  // small helper so the active page's link is visually highlighted
   const linkClass = (path) =>
     `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
       location.pathname === path

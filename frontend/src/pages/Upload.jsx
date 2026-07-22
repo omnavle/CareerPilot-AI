@@ -2,9 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { uploadResume } from "../api/client";
 
-// Job of this file: the Upload page. Lets the user pick a PDF, sends it
-// to the backend via uploadResume(), and shows success/error feedback.
-// On success, redirects to the Chat page automatically.
 
 function Upload() {
   const [selectedFile, setSelectedFile] = useState(null);

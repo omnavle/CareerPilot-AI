@@ -1,17 +1,3 @@
-"""
-resume_agent.py
-
-Job of this file: answer questions ABOUT the resume itself.
-Examples: "Summarize my resume", "Improve my resume", "What skills do I have?",
-"Explain my projects".
-
-Every agent in this project follows the SAME pattern:
-  1. Retrieve relevant resume chunks from ChromaDB (RAG step)
-  2. Build a prompt that includes those chunks + the user's question
-  3. Ask the LLM to answer, using ONLY the given resume context
-  4. Return the answer text + the source chunks used
-"""
-
 from app.rag.vector_store import retrieve_relevant_chunks
 from app.agents.llm_client import llm
 

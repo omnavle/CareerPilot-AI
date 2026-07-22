@@ -1,12 +1,3 @@
-"""
-schemas.py
-
-This file defines the "shape" of data that flows in and out of our API.
-Pydantic automatically validates incoming JSON and rejects bad requests
-with a clear error message, so we don't have to write manual checks like
-"if 'question' not in data: raise error".
-"""
-
 from pydantic import BaseModel
 from typing import List
 

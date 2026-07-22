@@ -1,15 +1,3 @@
-"""
-pdf_parser.py
-
-Job of this file: take a PDF file and turn it into plain text.
-That's it. It does NOT touch the database, the AI, or the API.
-This "one file, one job" rule makes the codebase easy to debug and explain.
-
-We use PyMuPDF (imported as 'fitz') because it's fast, has no external
-system dependencies (unlike some PDF libraries that need poppler installed),
-and handles most resume PDF layouts well.
-"""
-
 import fitz  # this is the PyMuPDF library
 
 

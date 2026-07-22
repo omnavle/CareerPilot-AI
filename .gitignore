@@ -1,36 +1,28 @@
-# Python
 __pycache__/
 *.py[cod]
 
-# Virtual environments
 venv/
 .venv/
 backend/venv/
 backend/.venv/
 
-# Environment variables
 .env
 backend/.env
 
-# ChromaDB & uploads
 data/chroma_db/*
 !data/chroma_db/.gitkeep
 
 data/uploads/*
 !data/uploads/.gitkeep
 
-# Node
 node_modules/
 frontend/node_modules/
 
-# Build
 dist/
 build/
 
-# IDE
 .vscode/
 .idea/
 
-# OS
 .DS_Store
 Thumbs.db

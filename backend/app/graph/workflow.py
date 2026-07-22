@@ -1,31 +1,3 @@
-"""
-workflow.py
-
-Job of this file: wire together our 4 nodes into a LangGraph graph.
-
-Graph shape (exactly as specified in the project spec):
-
-    User Question
-         |
-         v
-    Router Node  ---> classifies the question
-         |
-         v
-  -------------------------
-  |          |            |
-  v          v            v
-Resume     Career      Interview
-Agent      Agent       Agent
-  |          |            |
-  -------------------------
-         |
-         v
-    Final Answer
-
-We use LangGraph's "conditional edge" feature: the Router node doesn't
-generate an answer itself, it just decides which agent node runs next.
-"""
-
 from typing import TypedDict, Literal
 from langgraph.graph import StateGraph, END
 

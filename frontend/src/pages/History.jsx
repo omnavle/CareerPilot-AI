@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import ChatBubble from "../components/ChatBubble";
 
-// Job of this file: an OPTIONAL, simple History page.
-// Instead of adding a database table just to store chat history
-// (overkill for a fresher project), we just read the last saved
-// conversation from the browser's localStorage, which Chat.jsx writes to.
 
 function History() {
   const [historyEntry, setHistoryEntry] = useState(null);

@@ -1,16 +1,3 @@
-"""
-main.py
-
-Job of this file: the entrypoint of the backend. This is the file you run
-to start the server (`uvicorn app.main:app --reload`).
-
-It does three things:
-  1. Loads environment variables from .env
-  2. Creates the FastAPI app and enables CORS (so the React frontend,
-     running on a different port, is allowed to call this API)
-  3. Registers our two route files (resume, chat) under the app
-"""
-
 from dotenv import load_dotenv
 load_dotenv()  # must run before other modules read os.getenv(), so do it first
 

@@ -5,9 +5,6 @@ import Upload from "./pages/Upload";
 import Chat from "./pages/Chat";
 import History from "./pages/History";
 
-// Job of this file: the root component. Sets up client-side routing
-// so the browser URL changes between pages without a full page reload,
-// and renders the Navbar on every page.
 
 function App() {
   return (

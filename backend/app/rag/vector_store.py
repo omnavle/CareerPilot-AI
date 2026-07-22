@@ -1,21 +1,3 @@
-"""
-vector_store.py
-
-Job of this file: everything related to the "RAG" (Retrieval-Augmented
-Generation) part of the project.
-
-Three responsibilities:
- 1. Split resume text into small chunks
- 2. Convert those chunks into embeddings (number vectors) and store them
-    in ChromaDB
- 3. Given a user's question, retrieve the most relevant chunks
-
-Why chunk at all? A resume might be 500-1000 words. If we tried to search
-whole-resume matches, we'd always get "the whole resume" as the result,
-which isn't precise. Splitting into small chunks lets us fetch just the
-"Projects" section when someone asks about projects, for example.
-"""
-
 import os
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings

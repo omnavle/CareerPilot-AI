@@ -1,15 +1,3 @@
-"""
-resume.py (routes)
-
-Job of this file: expose the HTTP endpoints related to the resume file:
-  - POST /upload  -> upload a resume PDF, parse it, store it in ChromaDB
-  - GET  /resume  -> check whether a resume has already been uploaded
-
-Note: this file only handles HTTP concerns (reading the uploaded file,
-returning responses). The actual PDF parsing and vector storage logic
-live in their own dedicated files (parser/ and rag/), which we import here.
-"""
-
 import os
 from fastapi import APIRouter, UploadFile, File, HTTPException
 

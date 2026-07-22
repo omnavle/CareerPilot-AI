@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 
-// Job of this file: the landing page. Just explains what the app does
-// and points the user to the Upload page to get started. No API calls
-// happen here - it's a purely static page.
-
 function Home() {
   return (
     <div className="max-w-2xl mx-auto text-center py-20 px-6">

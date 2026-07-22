@@ -1,14 +1,3 @@
-"""
-llm_client.py
-
-Job of this file: create ONE shared connection to the Groq LLM that all
-three agents (resume, career, interview) reuse.
-
-Why a separate file instead of putting this in each agent?
-If we ever change the model name, temperature, or switch providers, we
-change it here ONCE instead of in three different files.
-"""
-
 import os
 from langchain_groq import ChatGroq
 

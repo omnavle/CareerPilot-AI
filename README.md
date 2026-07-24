@@ -1,97 +1,220 @@
-# CareerPilot AI
+````markdown
+<div align="center">
 
-An AI-powered Resume & Career Coach. Upload your resume (PDF) and chat with
-an AI that answers based only on your actual resume content.
+# 🚀 CareerPilot AI
 
-## How it works (high level)
+### **AI-Powered Resume & Career Coach**
 
+Upload your resume and interact with an AI assistant that provides personalized career guidance, resume insights, interview preparation, and job-related recommendations using **Retrieval-Augmented Generation (RAG)** and **LangGraph multi-agent orchestration**.
+
+<p>
+  <img src="https://img.shields.io/badge/React-Vite-61DAFB?style=for-the-badge&logo=react"/>
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi"/>
+  <img src="https://img.shields.io/badge/LangGraph-AI-black?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/LangChain-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/ChromaDB-VectorDB-purple?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Groq-LLM-red?style=for-the-badge"/>
+</p>
+
+**React • FastAPI • LangGraph • LangChain • ChromaDB • HuggingFace Embeddings • Groq**
+
+</div>
+
+---
+
+# 📖 Overview
+
+CareerPilot AI is a full-stack AI application that enables users to upload their resume and receive personalized career guidance through an intelligent conversational interface. The system uses **Retrieval-Augmented Generation (RAG)** and a **LangGraph multi-agent workflow** to ensure responses are grounded in the uploaded resume rather than relying solely on the language model.
+
+The application routes user questions to specialized AI agents for resume analysis, career guidance, or interview preparation, providing accurate, context-aware answers tailored to the user's experience and skills.
+
+---
+
+# ✨ Features
+
+- 📄 Upload Resume (PDF)
+- 🤖 AI Resume Analysis
+- 💼 Personalized Career Guidance
+- 🎯 Interview Preparation Assistant
+- 🧠 Multi-Agent Workflow using LangGraph
+- 🔍 Retrieval-Augmented Generation (RAG)
+- 📚 Semantic Resume Search
+- 💬 Context-Aware AI Chat
+- ⚡ Responsive React Interface
+- 📝 Markdown-Supported Responses
+
+---
+
+# 🛠 Tech Stack
+
+| Frontend | Backend | AI | Storage |
+|-----------|-----------|-----------|-----------|
+| React (Vite) | FastAPI | LangChain | ChromaDB |
+| Tailwind CSS | Python | LangGraph | Local Storage |
+| Axios | Pydantic | Groq API | |
+| React Router | Uvicorn | HuggingFace Embeddings | |
+
+---
+
+# 🏛 System Architecture
+
+```text
+                  Resume PDF Upload
+                          │
+                          ▼
+              PyMuPDF Text Extraction
+                          │
+                          ▼
+              Chunking & Embedding
+                          │
+                          ▼
+            HuggingFace Embeddings
+                          │
+                          ▼
+                  ChromaDB Storage
+                          │
+                          ▼
+                   User Question
+                          │
+                          ▼
+                LangGraph Router
+                          │
+          ┌───────────────┼────────────────┐
+          ▼               ▼                ▼
+   Resume Agent    Career Agent    Interview Agent
+          │               │                │
+          └───────────────┼────────────────┘
+                          ▼
+                  Groq Large Language Model
+                          │
+                          ▼
+                  Context-Aware Response
 ```
-1. Upload PDF  →  extract text (PyMuPDF)  →  chunk + embed  →  store in ChromaDB
-2. Ask a question  →  LangGraph Router Node classifies it
-                    →  routes to Resume / Career / Interview Agent
-                    →  agent retrieves relevant resume chunks (RAG)
-                    →  Groq LLM generates a grounded answer
-                    →  answer returned to the chat UI
+
+---
+
+# 📸 Screenshots
+
+Replace these placeholders with your application screenshots.
+
+## 🏠 Home
+
+![Home](docs/images/home.png)
+
+---
+
+## 📄 Resume Upload
+
+![Upload](docs/images/upload.png)
+
+---
+
+## 💬 AI Chat
+
+![Chat](docs/images/chat.png)
+
+---
+
+## 📊 Resume Analysis
+
+```md
+![Resume](docs/images/resume.png)
 ```
 
-## Tech Stack
-- **Frontend:** React (Vite) + Tailwind CSS + Axios + React Router
-- **Backend:** FastAPI + Pydantic
-- **AI:** LangChain + LangGraph + Groq API
-- **Embeddings:** HuggingFace `sentence-transformers/all-MiniLM-L6-v2` (runs locally, free)
-- **Vector DB:** ChromaDB (local, file-based)
-- **PDF parsing:** PyMuPDF
+---
 
-## Running the backend
+# ⚙ Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/yourusername/CareerPilot-AI.git
+
+cd CareerPilot-AI
+```
+
+---
+
+## Backend Setup
 
 ```bash
 cd backend
+
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+
+# Windows
+venv\Scripts\activate
+
+# Linux / macOS
+source venv/bin/activate
+
 pip install -r requirements.txt
-
-cp .env.example .env
-# then open .env and paste your free Groq API key from https://console.groq.com
-
-uvicorn app.main:app --reload
-# backend runs at http://localhost:8000
-# interactive API docs at http://localhost:8000/docs
 ```
 
-## Running the frontend
+Create a `.env`
+
+```env
+GROQ_API_KEY=your_groq_api_key
+```
+
+Run Backend
+
+```bash
+uvicorn app.main:app --reload
+```
+
+Backend
+
+```
+http://localhost:8000
+```
+
+Swagger Documentation
+
+```
+http://localhost:8000/docs
+```
+
+---
+
+## Frontend Setup
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
-# frontend runs at http://localhost:5173
 ```
 
-## Project Structure
+Frontend
 
 ```
-backend/
-  app/
-    agents/        # 3 LangGraph agent nodes (resume, career, interview) + shared LLM client
-    graph/          # LangGraph workflow: router -> agent -> answer
-    rag/            # ChromaDB storage, chunking, retrieval
-    parser/         # PDF -> plain text extraction
-    routes/         # FastAPI endpoints (/upload, /chat, /resume)
-    models/         # Pydantic request/response schemas
-    main.py         # FastAPI app entrypoint
-  data/
-    uploads/        # saved resume PDFs
-    chroma_db/      # ChromaDB persistent storage
-frontend/
-  src/
-    api/            # Axios client - all backend calls in one place
-    components/     # Navbar, ChatBubble
-    pages/          # Home, Upload, Chat, History
-    App.jsx         # routes
+http://localhost:5173
 ```
 
-## API Endpoints
+---
 
-| Method | Path      | Purpose                                   |
-|--------|-----------|--------------------------------------------|
-| POST   | `/upload` | Upload a resume PDF, extract + index it   |
-| POST   | `/chat`   | Ask a question, get an AI-routed answer   |
-| GET    | `/resume` | Check if a resume is already uploaded     |
+# 🧠 LangGraph Workflow
 
-## The LangGraph Workflow (4 nodes)
-
+```text
+                  User Question
+                        │
+                        ▼
+              LangGraph Router Node
+                        │
+        ┌───────────────┼───────────────┐
+        ▼               ▼               ▼
+ Resume Agent    Career Agent    Interview Agent
+        │               │               │
+        └───────────────┼───────────────┘
+                        ▼
+               Resume Retrieval (RAG)
+                        │
+                        ▼
+                    Groq LLM
+                        │
+                        ▼
+               Personalized Response
 ```
-User Question
-     ↓
-Router Node        (classifies: resume / career / interview)
-     ↓
-┌────────────┬────────────┬──────────────┐
-Resume Agent   Career Agent   Interview Agent
-└────────────┴────────────┴──────────────┘
-     ↓
-Final Answer
-```
 
-Each agent retrieves relevant resume chunks from ChromaDB before answering,
-so responses stay grounded in the user's actual resume instead of the LLM
-making things up.

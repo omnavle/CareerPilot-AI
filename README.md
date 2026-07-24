@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # 🚀 CareerPilot AI
@@ -112,14 +111,6 @@ Replace these placeholders with your application screenshots.
 ## 💬 AI Chat
 
 ![Chat](docs/images/chat.png)
-
----
-
-## 📊 Resume Analysis
-
-```md
-![Resume](docs/images/resume.png)
-```
 
 ---
 
